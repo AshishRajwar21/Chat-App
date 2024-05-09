@@ -1,5 +1,5 @@
 #ignore node_modules directory
 
 node_modules/
-
+.env
 //comment added for testing purpose
