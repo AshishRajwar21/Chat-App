@@ -14,10 +14,24 @@ const app = express();
 
 app.use(express.json()); //to accept json data
 
-app.get("/", (req, res) => {
-  //request and response
-  res.send("API is running successfully");
-});
+const path = require("path");
+
+//---------------Deployment----------------
+const __dirname1 = path.resolve();
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "/frontend/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"));
+  });
+} else {
+  app.get("/", (req, res) => {
+    //request and response
+    res.send("API is running successfully");
+  });
+}
+
+//-----------------------------------------
 
 // app.get('/api/chats',(req,res) => {
 //     res.send(chats);
