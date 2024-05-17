@@ -21,9 +21,9 @@ import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
 
 const BASE_URL = process.env.BASE_URL;
-const PORT = process.env.PORT || 5000;
+//const PORT = process.env.PORT || 5000;
 // const END_POINT = "http://localhost:5000";
-const END_POINT = `${BASE_URL}:${PORT}`;
+const END_POINT = `${BASE_URL}`;
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
