@@ -14,6 +14,14 @@ const app = express();
 
 app.use(express.json()); //to accept json data
 
+// app.get('/api/chats',(req,res) => {
+//     res.send(chats);
+// })
+
+app.use("/api/user", userRoutes);
+app.use("/api/chat", chatRoutes);
+app.use("/api/message", messageRoutes);
+
 const path = require("path");
 
 //---------------Deployment----------------
@@ -33,14 +41,6 @@ if (process.env.NODE_ENV === "production") {
 
 //-----------------------------------------
 
-// app.get('/api/chats',(req,res) => {
-//     res.send(chats);
-// })
-
-app.use("/api/user", userRoutes);
-app.use("/api/chat", chatRoutes);
-app.use("/api/message", messageRoutes);
-
 app.use(notFound);
 app.use(errorHandling);
 
@@ -48,10 +48,13 @@ const PORT = process.env.PORT || 5000;
 
 const server = app.listen(PORT, console.log(`Server started on port ${PORT}`));
 
+//const BASE_URL = process.env.BASE_URL;
+//origin: "http://localhost:3000",
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
     origin: "http://localhost:3000",
+    //origin: `${BASE_URL}`,
   },
 });
 
