@@ -65,6 +65,7 @@ const MyChats = ({ fetchAgain }) => {
             display="flex"
             fontSize={{ base: "18px", md: "12px", lg: "18px" }}
             bg="#0c4acc"
+            color="white"
             rightIcon={<AddIcon />}
           >
             Create New Group
