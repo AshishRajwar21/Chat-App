@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon backend/server.js",
-    "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix frontend && npm run build --prefix frontend && npm install socket.io"
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend && npm install socket.io"
   },
   "author": "Ashish Rajwar",
   "license": "ISC",

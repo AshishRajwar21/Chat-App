@@ -64,7 +64,7 @@ const MyChats = ({ fetchAgain }) => {
           <Button
             display="flex"
             fontSize={{ base: "18px", md: "12px", lg: "18px" }}
-            bg="green"
+            bg="#0c4acc"
             rightIcon={<AddIcon />}
           >
             Create New Group
@@ -88,7 +88,7 @@ const MyChats = ({ fetchAgain }) => {
               <Box
                 onClick={() => setSelectedChat(chat)}
                 cursor="pointer"
-                bg={selectedChat === chat ? "green" : "grey"}
+                bg={selectedChat === chat ? "#0c4acc" : "#e0e2e6"}
                 color={selectedChat === chat ? "white" : "black"}
                 px={3}
                 py={3}
