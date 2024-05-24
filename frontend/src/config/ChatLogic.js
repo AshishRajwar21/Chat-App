@@ -8,9 +8,8 @@ export const getSenderAll = (loggedUser, users) => {
 export const isSameSender = (message, m, ind, userId) => {
   return (
     ind < message.length - 1 &&
-    (message[ind + 1].sender._id !== m.sender._id ||
-      message[ind + 1].sender._id === undefined) &&
-    message[ind + 1].sender._id !== userId
+    (message[ind + 1].sender._id === m.sender._id ||
+      message[ind + 1].sender._id === undefined)
   );
 };
 

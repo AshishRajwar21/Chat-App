@@ -81,7 +81,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     }
   };
   useEffect(() => {
-    socket = io(END_POINT, { transports: ["websocket", "polling"] });
+    //socket = io(END_POINT, { transports: ["websocket", "polling"] });
+    socket = io(END_POINT);
     socket.emit("setup", user);
     socket.on("connected", () => setSocketConnected(true));
     socket.on("typing", () => setIsTyping(true));
@@ -209,7 +210,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             borderRadius="lg"
             w="96%"
             h="100%"
-            bg="gray"
+            bg="#eff1f3"
             m={2}
           >
             {loading ? (
@@ -241,6 +242,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 placeholder="Write a message here..."
                 onChange={typingHandler}
                 bg="whitesmoke"
+                borderRadius="0px"
                 value={newMessage}
               />
             </FormControl>

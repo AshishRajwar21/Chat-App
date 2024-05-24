@@ -16,8 +16,15 @@ const ScrollableChat = ({ message }) => {
       <ScrollableFeed>
         {message &&
           message.map((m, ind) => (
-            <div style={{ display: "flex" }} key={m._id}>
-              {(isSameSender(message, m, ind, user._id) ||
+            <div
+              style={{
+                display: "flex",
+                justifyContent:
+                  user._id === m.sender._id ? "flex-end" : "flex-start",
+              }}
+              key={m._id}
+            >
+              {(!isSameSender(message, m, ind, user._id) ||
                 isLastMessage(message, ind, user._id)) && (
                 <Tooltip
                   placement="bottom-start"
@@ -39,9 +46,14 @@ const ScrollableChat = ({ message }) => {
                   backgroundColor: `${
                     m.sender._id === user._id ? "#BEE3F8" : "#B9F5D0"
                   }`,
-                  marginLeft: isSameSenderMargin(message, m, ind, user._id),
+                  marginLeft:
+                    user._id === m.sender._id
+                      ? "0px"
+                      : isSameSenderMargin(message, m, ind, user._id),
                   marginTop: isSameUser(message, m, ind, user._id) ? 3 : 10,
-                  borderRadius: "20px",
+                  borderRadius: `${
+                    user._id !== m.sender._id ? "0px" : "20px"
+                  } ${user._id === m.sender._id ? "0px" : "20px"} 20px 20px`,
                   padding: "5px 15px",
                   maxWidth: "75%",
                 }}
