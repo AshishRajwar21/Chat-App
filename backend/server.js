@@ -54,9 +54,9 @@ const BASE_URL = process.env.BASE_URL;
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    //origin: "*",
+    origin: "http://localhost:3000",
     //credentials: true,
-    origin: `${BASE_URL}`,
+    //origin: `${BASE_URL}`,
   },
 });
 
