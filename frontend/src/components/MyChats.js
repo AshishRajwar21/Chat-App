@@ -138,10 +138,27 @@ const MyChats = ({ fetchAgain }) => {
                           : chat.chatName}
                       </Text>
                       <Text fontSize="12px">
-                        {!chat.isGroupChat
-                          ? "Email : " +
-                            getSenderAll(loggedUser, chat.users).email
-                          : "Group chat"}
+                        {chat.latestMessage
+                          ? getSenderAll(loggedUser, chat.users).name +
+                            " : " +
+                            chat.latestMessage.content
+                          : ""}
+                      </Text>
+                    </Box>
+                    <Box>
+                      <Text fontSize="14px">
+                        {chat.latestMessage
+                          ? chat.latestMessage.updatedAt.substring(11, 16)
+                          : ""}
+                      </Text>
+                      <Text fontSize="9px" width="50px">
+                        {chat.latestMessage
+                          ? chat.latestMessage.updatedAt.substring(8, 10) +
+                            "-" +
+                            chat.latestMessage.updatedAt.substring(5, 7) +
+                            "-" +
+                            chat.latestMessage.updatedAt.substring(0, 4)
+                          : ""}
                       </Text>
                     </Box>
                   </Box>

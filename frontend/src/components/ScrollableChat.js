@@ -7,7 +7,7 @@ import {
   isSameUser,
 } from "../config/ChatLogic";
 import { ChatState } from "../Context/ChatProvider";
-import { Avatar, Tooltip } from "@chakra-ui/react";
+import { Avatar, Text, Tooltip } from "@chakra-ui/react";
 
 const ScrollableChat = ({ message }) => {
   const { user } = ChatState();
@@ -58,7 +58,18 @@ const ScrollableChat = ({ message }) => {
                   maxWidth: "75%",
                 }}
               >
-                {m.content}
+                <div>{m.content}</div>
+                <div display="flex" flex-direction="row-reverse">
+                  <Text fontSize="10px">
+                    {m.updatedAt.substring(11, 16) +
+                      " " +
+                      m.updatedAt.substring(8, 10) +
+                      "-" +
+                      m.updatedAt.substring(5, 7) +
+                      "-" +
+                      m.updatedAt.substring(0, 4)}
+                  </Text>
+                </div>
               </span>
             </div>
           ))}
