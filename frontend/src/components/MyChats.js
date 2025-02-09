@@ -139,7 +139,7 @@ const MyChats = ({ fetchAgain }) => {
                       </Text>
                       <Text fontSize="12px">
                         {chat.latestMessage
-                          ? getSenderAll(loggedUser, chat.users).name +
+                          ? chat.latestMessage.sender.name +
                             " : " +
                             chat.latestMessage.content
                           : ""}
